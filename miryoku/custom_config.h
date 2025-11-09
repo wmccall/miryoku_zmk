@@ -33,12 +33,12 @@ MIRYOKU_X(MODSWAP, "ModSwap")
 
 // Custom SYM layer with toggle for MODSWAP
 // Based on MIRYOKU_ALTERNATIVES_SYM from miryoku_layer_alternatives.h
-// but with &tog U_MODSWAP on the left thumb DEL position
+// but with &tog U_MODSWAP on thumb position 7 (DEL key position)
 #define MIRYOKU_LAYER_SYM \
 &kp LBRC,          &kp AMPS,          &kp ASTRK,         &kp LPAR,          &kp RBRC,          U_NA,              &u_to_U_BASE,      &u_to_U_EXTRA,     &u_to_U_TAP,       U_BOOT,            \
 &kp COLON,         &kp DLLR,          &kp PRCNT,         &kp CARET,         &kp PLUS,          U_NA,              &kp LSHFT,         &kp LCTRL,         &kp LALT,          &kp LGUI,          \
 &kp TILDE,         &kp EXCL,          &kp AT,            &kp HASH,          &kp PIPE,          U_NA,              &u_to_U_SYM,       &u_to_U_MOUSE,     &kp RALT,          U_NA,              \
-U_NP,              U_NP,              &tog U_MODSWAP,    U_NA,              U_NA,              U_LT(U_SYM, RET),  &kp BSPC,          &kp DEL,           U_NP,              U_NP
+U_NP,              U_NP,              &kp K_APP,         &kp SPACE,         &kp TAB,           U_NA,              U_NA,              &tog U_MODSWAP,    U_NP,              U_NP
 
 // MODSWAP layer: Transparent overlay that swaps Ctrl <-> GUI on home row
 // When toggled on, all keys pass through except home row modifiers are swapped
