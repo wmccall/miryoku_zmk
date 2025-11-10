@@ -47,3 +47,6 @@ U_NP,              U_NP,              &kp LPAR,          &kp RPAR,          &kp 
 U_MT(LCTRL, A),    U_MT(LALT, S),     U_MT(LGUI, D),     U_MT(LSHFT, F),    &trans,            &trans,            U_MT(LSHFT, J),    U_MT(LGUI, K),     U_MT(LALT, L),     U_MT(LCTRL, SQT),  \
 &trans,            &trans,            &trans,            &trans,            &trans,            &trans,            &trans,            &trans,            &trans,            &trans,            \
 U_NP,              U_NP,              &trans,            &trans,            &trans,            &trans,            &trans,            &trans,            U_NP,              U_NP
+
+// Define layer mapping for MODSWAP (required for new layers per documentation)
+#define MIRYOKU_LAYERMAPPING_MODSWAP MIRYOKU_MAPPING
