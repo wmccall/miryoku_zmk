@@ -9,6 +9,6 @@ jobs:
     uses: ./.github/workflows/main.yml
     secrets: inherit
     with:
-      board: '["nice_nano/v2"]'
+      board: '["nice_nano/nrf52840/zmk"]'
       shield: '["corne_left nice_view_adapter nice_view","corne_right nice_view_adapter nice_view"]'
       alphas: '["qwerty"]'
