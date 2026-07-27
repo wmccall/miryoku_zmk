@@ -91,6 +91,7 @@ jobs:
             shield=""
           fi
           echo "shield_arg=$SHIELD_ARG" >> $GITHUB_OUTPUT
+          echo "keyboard=$keyboard" >> $GITHUB_OUTPUT
           keyboard_split="$keyboard"
           keyboard_base=`echo "$keyboard" | sed -e 's/_\(left\|right\|dongle\)//' -e 's/@.*//'`
 
@@ -361,7 +362,12 @@ jobs:
             file="${GITHUB_WORKSPACE}/zmk/app/build/zephyr/zmk.$extension"
             if [ -f "$file" ]
             then
-              cp "$file" "${{ steps.main.outputs.artifact_dir }}"
+              if [ "$extension" = 'uf2' ]
+              then
+                cp "$file" "${{ steps.main.outputs.artifact_dir }}/${{ steps.main.outputs.keyboard }}.uf2"
+              else
+                cp "$file" "${{ steps.main.outputs.artifact_dir }}"
+              fi
               test "$MIRYOKU_DEBUG" = 'MIRYOKU_DEBUG_TRUE' || break
             fi
           done
@@ -370,6 +376,6 @@ jobs:
       - name: upload
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ steps.main.outputs.run_name }}
-          path: ${{ steps.main.outputs.artifact_dir }}
+          name: ${{ steps.main.outputs.keyboard }}
+          path: ${{ steps.main.outputs.artifact_dir }}/${{ steps.main.outputs.keyboard }}.uf2
 
