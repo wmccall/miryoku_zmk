@@ -12,3 +12,21 @@ jobs:
       board: '["nice_nano/nrf52840/zmk"]'
       shield: '["corne_left nice_view_adapter nice_view","corne_right nice_view_adapter nice_view"]'
       alphas: '["qwerty"]'
+
+  package:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: download
+        uses: actions/download-artifact@v4
+        with:
+          pattern: 'corne_*'
+          path: firmware
+          merge-multiple: true
+      - name: upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: firmware
+          path: |
+            firmware/corne_left.uf2
+            firmware/corne_right.uf2
